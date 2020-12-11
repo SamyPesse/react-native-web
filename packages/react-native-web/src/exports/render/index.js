@@ -7,6 +7,12 @@
  * @flow
  */
 
-import { hydrate, render } from 'react-dom';
-export { hydrate };
-export default render;
+import * as ReactDOM from 'react-dom';
+
+export default function render(element, container, callback) {
+  ReactDOM.createRoot(element).render(container, callback);
+}
+
+export function hydrate(element, container, callback) {
+  ReactDOM.createRoot(element, { hydrate: true }).render(container, callback);
+}
